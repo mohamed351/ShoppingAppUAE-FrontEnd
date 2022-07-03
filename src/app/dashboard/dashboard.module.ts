@@ -13,6 +13,7 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { ChartsModule } from 'ng2-charts';
 
 import { DashboardComponent } from './dashboard.component';
+import { FeahterIconModule } from '../core/feather-icon/feather-icon.module';
 
 const routes: Routes = [
   {
@@ -30,7 +31,9 @@ const routes: Routes = [
     NgbDropdownModule,
     NgbDatepickerModule,
     NgApexchartsModule,
-    ChartsModule
+    ChartsModule,
+    FeahterIconModule
+    
   ]
 })
 export class DashboardModule { }
