@@ -6,7 +6,16 @@ import { CustomerListComponent } from './customer-list/customer-list.component';
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
 import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
+import { RouterModule, Routes } from '@angular/router';
+import {HttpClientModule} from "@angular/common/http";
 
+
+const routers:Routes =[
+  {path:"", component:CustomerListComponent},
+  {path:"create", component:CustomerCreateComponent },
+  {path:"edit/:id", component:CustomerEditComponent},
+  {path:"delete/:id",component:CustomerDeleteComponent}
+]
 
 @NgModule({
   declarations: [
@@ -17,7 +26,9 @@ import { CustomerDeleteComponent } from './customer-delete/customer-delete.compo
   ],
   imports: [
     CommonModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    RouterModule.forChild(routers),
+    HttpClientModule    
   
   ]
 })
