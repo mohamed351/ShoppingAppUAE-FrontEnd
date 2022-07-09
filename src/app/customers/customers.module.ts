@@ -8,6 +8,8 @@ import { CustomerEditComponent } from './customer-edit/customer-edit.component';
 import { CustomerDeleteComponent } from './customer-delete/customer-delete.component';
 import { RouterModule, Routes } from '@angular/router';
 import {HttpClientModule} from "@angular/common/http";
+import { CustomerService } from './customer.service';
+import {ReactiveFormsModule} from '@angular/forms'
 
 
 const routers:Routes =[
@@ -28,8 +30,9 @@ const routers:Routes =[
     CommonModule,
     NgxDatatableModule,
     RouterModule.forChild(routers),
-    HttpClientModule    
-  
-  ]
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
+  providers:[CustomerService]
 })
 export class CustomersModule { }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Customer } from 'src/app/model/customer';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-customer-delete',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerDeleteComponent implements OnInit {
 
-  constructor() { }
+  customer:Customer = null;
+  constructor(private customerService:CustomerService, private activeRouter:ActivatedRoute, private router:Router) { 
+  
+  }
 
   ngOnInit(): void {
+    this.activeRouter.params.subscribe(a=>{
+     this.customerService.getByID(a["id"]).subscribe(c=>{
+      this.customer = c;
+     });
+    });
+  }
+
+  navigateBack():void{
+    this.router.navigate(["/customers"]);
+
+  }
+  deleteCustomer(id:number):void{
+    this.customerService.deleteCustomer(id).subscribe(a=>{
+      this.router.navigate(["/customers"]);
+    },(error)=>{
+
+    })
   }
 
 }

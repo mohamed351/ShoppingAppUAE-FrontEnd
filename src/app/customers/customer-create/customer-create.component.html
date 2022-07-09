@@ -1,1 +1,55 @@
-<p>customer-create works!</p>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="SaveCustomer()">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                <div *ngIf="this.Name.errors && this.Name.dirty">
+                    <div >
+                        <div *ngIf=" this.Name.errors['required']" class="text-danger">
+                            The Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" formControlName="phone" placeholder="Phone">
+                <div *ngIf="this.Phone.errors && this.Phone.dirty">
+                    <div >
+                        <div *ngIf=" this.Phone.errors['required']" class="text-danger">
+                            The Phone is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                <div *ngIf="this.Email.errors && this.Email.dirty">
+                    <div >
+                        <div *ngIf=" this.Email.errors['email']" class="text-danger">
+                          The email formate is wrong
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+            <div *ngIf="isLoading == false">
+
+                 <button [disabled]="!form.valid" type="submit" class="btn btn-sucesss">Submit Data</button>
+            </div>
+
+            <div *ngIf="isLoading == true">
+               loading...
+            </div>
+
+
+
+        </form>
+    </div>
+</div>
