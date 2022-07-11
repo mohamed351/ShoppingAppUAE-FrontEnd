@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-body">
+       <h2>Are you sure you want to delete Supplier</h2>
+    </div>
+     <table>
+        <tr>
+            <td>Name</td>
+            <td>{{customer?.name}}</td>
+        </tr>
+    
+        <tr>
+            <td>Phone</td>
+            <td>{{customer?.phone}}</td>
+        </tr>
+    
+        <tr>
+            <td>Email</td>
+            <td>{{customer?.email}}</td>
+        </tr>
+     </table>
+    
+     <div>
+    <button class="btn btn-primary" (click)="deleteCustomer(customer?.id)"> Delete</button>
+    <button class="btn btn-default"(click)="navigateBack()">Go Back </button>
+    </div>
+    </div>
