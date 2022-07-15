@@ -1,7 +1,34 @@
 <div class="card">
     <div class="card-body">
-        <input type="text" placeholder="Serial" >
+        <input type="text" class="form-control"  placeholder="Main" #serial  (keyup)="addMainSerail($event, serial)">
+    </div>
+
+
+    <div class="card">
+        <div class="card-body">
+           <div *ngFor="let i of currentList">
+              <div class="card">
+                 <div class="card-body">
+                  <div class="serial-container">
+                    <ngx-barcode [bc-value]="i.serial" [bc-display-value]="true"></ngx-barcode>
+                        <button class="btn btn-danger" (click)="deleteMainBarCode(i)">x</button>
+                      </div>
+                     <div>
+                        <h6>SubSerials</h6>
+                        <input    type="text" placeholder="sub-serial" #subserial  class="form-control current-serial" (keyup)="addSubSerial($event,i,subserial)" />
+                        <ul>
+                            <li *ngFor="let item of i.subSerial"> {{item.serial}}</li>
+                        </ul>
+
+                     </div>
+                </div>
+              </div>
+           </div>
+           <div>
+            <button class="btn btn-primary">Save</button>
+          </div>
+        </div>
+
     </div>
 </div>
 
-<ngx-barcode [bc-value]="'12514141'" [bc-display-value]="true"></ngx-barcode>
