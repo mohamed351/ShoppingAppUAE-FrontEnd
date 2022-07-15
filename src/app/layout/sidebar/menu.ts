@@ -41,7 +41,24 @@ export const MENU: MenuItem[] = [
         link: '/suppliers/create'
       },
     ]
+  },
+  {
+    label: 'Product',
+    isTitle: true
+  },
+  {
+    label: 'Products',
+    icon: 'mail',
+    subItems: [
+      {
+        label: 'Product-List',
+        link: '/products',
+      }
+   
+    ]
   }
+
+
  
  
 ];

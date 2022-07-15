@@ -1,0 +1,61 @@
+
+
+<div class="row">
+    <div class="col-md-12 stretch-card">
+      <div class="card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+          <h6 class="card-title">Products</h6>
+        
+        </div>
+          <div class="table-responsive">
+<ngx-datatable
+class="bootstrap"
+[count]="count"
+[loadingIndicator]="loadingIndicator"
+[columnMode]="columnMode"
+[footerHeight]="50"
+[limit]="10"
+(page)="ClickPage($event)"
+[rows]="rows"
+
+
+[limit]="page.limit" [externalPaging]="true"
+[offset]="page.offset"
+rowHeight="auto"
+>
+<!-- <ngx-datatable-column name="id"></ngx-datatable-column>
+<ngx-datatable-column name="name"></ngx-datatable-column>
+<ngx-datatable-column name="phone"></ngx-datatable-column>
+<ngx-datatable-column name="email"></ngx-datatable-column> -->
+
+
+  <ngx-datatable-column name="English" [width]="90" [resizeable]="false" [sortable]="false">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.productNameEnglish}}
+    </ng-template>
+  </ngx-datatable-column>
+
+
+  <ngx-datatable-column name="English" [width]="90" [resizeable]="false" [sortable]="false">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.productNameArabic}}
+    </ng-template>
+  </ngx-datatable-column>
+
+
+  <ngx-datatable-column name="" [width]="70" [resizeable]="false"  [sortable]="false">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <!-- {{row.id}} -->
+     <a class="btn btn-primary" [routerLink]="['serials',row.productID]">Add Serial</a> 
+    
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>
+          </div>
+          </div>    
+      </div>
+
+</div>  
+</div>
