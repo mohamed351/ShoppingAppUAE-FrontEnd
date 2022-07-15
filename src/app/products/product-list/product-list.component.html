@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
           <h6 class="card-title">Products</h6>
-        
+
         </div>
           <div class="table-responsive">
 <ngx-datatable
@@ -47,15 +47,15 @@ rowHeight="auto"
   <ngx-datatable-column name="" [width]="70" [resizeable]="false"  [sortable]="false">
     <ng-template let-row="row" ngx-datatable-cell-template>
       <!-- {{row.id}} -->
-     <a class="btn btn-primary" [routerLink]="['serials',row.productID]">Add Serial</a> 
-    
+     <a class="btn btn-primary" [routerLink]="['serials',row.productID]">Add Serial</a> |
+     <a class="btn btn-primary" [routerLink]="['produt-serials',row.productID]"> Serial-List</a>
     </ng-template>
   </ngx-datatable-column>
 
 </ngx-datatable>
           </div>
-          </div>    
+          </div>
       </div>
 
-</div>  
+</div>
 </div>

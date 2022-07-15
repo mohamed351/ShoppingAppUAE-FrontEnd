@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.sidebar-dark .card {
+  background-color:#0C1427;
+  color:#fff;
+}
+.sidebar-dark{
+  h1,h2,h3,h4,h5,h6{
+    background-color: #0C1427 !important;
+    color:#fff !important;
+    box-shadow: none !important;
+  }
+  .card-title{
+
+  }
+
+}

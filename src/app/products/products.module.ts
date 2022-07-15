@@ -7,19 +7,22 @@ import {NgxDatatableModule} from "@swimlane/ngx-datatable";
 import {RouterModule,Routes } from "@angular/router";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ProductService } from './product.service';
-import { NgxBarcodeModule } from '@greatcloak/ngx-barcode'
+import { NgxBarcodeModule } from '@greatcloak/ngx-barcode';
+import { ProductSerialsComponent } from './product-serials/product-serials.component'
 
 
 
 const router:Routes = [
   {path:"" , component:ProductListComponent},
-  {path:"serials/:id" , component:ProductSerialsListComponent}
+  {path:"serials/:id" , component:ProductSerialsListComponent},
+  {path:"produt-serials/:id",component:ProductSerialsComponent}
 ]
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductSerialsListComponent,
+    ProductSerialsComponent,
 
   ],
   imports: [
@@ -29,8 +32,8 @@ const router:Routes = [
     RouterModule.forChild(router),
     ReactiveFormsModule,
     NgxBarcodeModule
-    
-    
+
+
   ],
   providers:[ProductService]
 })
