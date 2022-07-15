@@ -23,5 +23,6 @@ export class CustomerService {
   deleteCustomer(id:number){
     return this.http.delete(environment.BaseURL+this.url+`/${id}`);
   }
-  
+
+
 }

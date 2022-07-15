@@ -54,11 +54,30 @@ export const MENU: MenuItem[] = [
         label: 'Product-List',
         link: '/products',
       }
-   
+
+    ]
+  },
+  {
+    label: 'Invoices',
+    isTitle: true
+  },
+  {
+    label: 'Offline-Invoice',
+    icon: 'mail',
+    subItems: [
+      {
+        label: 'Invoice-List',
+        link: '/offline-invoices',
+      },
+      {
+        label: 'Create Invoice',
+        link: '/offline-invoices/create',
+      }
+
     ]
   }
 
 
- 
- 
+
+
 ];

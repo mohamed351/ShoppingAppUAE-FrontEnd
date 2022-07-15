@@ -23,6 +23,11 @@ const routes: Routes = [
       {
         path:"products",
         loadChildren:()=> import("./products/products.module").then(m=> m.ProductsModule)
+      },
+      {
+        path:"offline-invoices",
+        loadChildren:()=>import("./invoices/invoices.module").then(m=> m.InvoicesModule)
+
       }
     ]
   }
