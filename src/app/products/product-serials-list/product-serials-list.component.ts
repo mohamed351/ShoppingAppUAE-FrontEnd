@@ -1,6 +1,7 @@
 import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, OnChanges, OnInit, SimpleChanges, ViewChild, ViewChildren } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Serial } from 'src/app/model/serial';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-serials-list',
@@ -12,7 +13,8 @@ export class ProductSerialsListComponent implements OnInit {
 @ViewChildren("#subSerials") subElements;
    public currentList:Serial[] = []
    public id:number;
-  constructor(private activeRouter:ActivatedRoute) {
+   public isloading:boolean = false;
+  constructor(private activeRouter:ActivatedRoute, private productService:ProductService, private router:Router) {
 
    }
 
@@ -36,7 +38,7 @@ export class ProductSerialsListComponent implements OnInit {
         subSerial:[]
       })
       input.value = "";
-        setInterval(()=>{
+        setTimeout(()=>{
           (document.getElementsByClassName("current-serial")[0] as HTMLInputElement).focus();
         },100)
 
@@ -56,6 +58,22 @@ export class ProductSerialsListComponent implements OnInit {
       });
       input.value ="";
     }
+  }
+
+  SaveSerial(){
+
+    if(this.currentList.length == 0 ){
+      alert("Please enter at lest one serail");
+      return;
+    }
+    this.isloading = true;
+    this.productService.AddProductSerail(this.currentList).subscribe(a=>{
+      this.isloading = false;
+        this.router.navigate(["/products"]);
+    },(error)=>{
+      console.error(error);
+    });
+
   }
 
 

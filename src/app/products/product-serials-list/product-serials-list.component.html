@@ -24,8 +24,12 @@
                 </div>
               </div>
            </div>
-           <div>
-            <button class="btn btn-primary">Save</button>
+           <div *ngIf="!isloading">
+
+            <button class="btn btn-primary" (click)="SaveSerial()">Save</button>
+          </div>
+          <div *ngIf="isloading">
+              loading ...
           </div>
         </div>
 
